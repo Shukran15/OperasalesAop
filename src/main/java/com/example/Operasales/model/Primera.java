@@ -1,14 +1,32 @@
 package com.example.Operasales.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Primera {
 
 
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String name;
     private String descripcion;
     private Kategory kt;
     private int freeplace;
 
+
+    public void minusPlace(){
+
+        freeplace = freeplace - 1;
+    }
+
+    public void plusPlace(){
+
+        freeplace = freeplace + 1;
+    }
 
     public Primera(long id, String name, String descripcion, Kategory kt, int freeplace) {
         this.id = id;

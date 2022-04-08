@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 @Repository
@@ -14,7 +15,7 @@ public class OperaRepozitory {
     @Autowired
     private ArrayList<Primera> prs;
 
-    public void addPr(Primera pr) {
+    public void save(Primera pr) {
 
         System.out.println("Начало добавления примьеры " + pr);
         prs.add(pr);
@@ -22,68 +23,21 @@ public class OperaRepozitory {
 
     }
 
-    public void printAll() {
-        for (Primera primera : prs) {
-            System.out.println(primera);
-        }
+    public List<Primera> getAll() {
+        return prs;
     }
 
-    public void minusplace(long id) {
-        for (Primera primera : prs) {
-            if (primera.getId() == id) {
-                primera.setFreeplace(primera.getFreeplace() - 1);
-            }
-        }
-    }
 
-    public void plusplace(long id) {
-        for (Primera primera : prs) {
-            if (primera.getId() == id) {
-                primera.setFreeplace(primera.getFreeplace() + 1);
-            }
-        }
-    }
 
-    public void minusprimera(long id) {
+
+
+    public void removeById(long id) {
         for (Primera primera : prs) {
             if (primera.getId() == id) {
                 prs.remove(primera);
                 break;
             }
         }
-    }
-
-    public void printPrimera(String name) {
-        for (Primera primera : prs) {
-            if (primera.getName().equals(name)) {
-                System.out.println(primera);
-            }
-        }
-
-    }
-
-    public Ticket buy(String name) {
-
-        Random random = new Random();
-        Ticket t = null;
-        for (Primera primera : prs) {
-            if (primera.getName().equals(name)) {
-                int place = random.nextInt(120);
-                t = new Ticket(primera, 100, place);
-
-                primera.setFreeplace(primera.getFreeplace() - 1);
-            }
-        }
-
-        return t;
-    }
-
-    public void vozvrat(Ticket ticket) {
-
-        Primera primera = ticket.getPr();
-        long id = primera.getId();
-        plusplace(id);
-
     }
 
     public Primera getPremieraById(long id) {
@@ -95,6 +49,20 @@ public class OperaRepozitory {
 
         return null;
     }
+
+    public Primera getPremieraByName(String name) {
+        for (Primera primera : prs) {
+            if (primera.getName().equals(name)) {
+                return primera;
+            }
+        }
+
+        return null;
+    }
+
+    public void update(Primera p){
+    }
+
 
 }
 

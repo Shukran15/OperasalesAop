@@ -11,9 +11,9 @@ public interface JPARepozitory extends CrudRepository<Primera, Long> {
      List<Primera> findAll();
      Primera save(Primera primera);
      void removeById(Long id);
-     Primera getPremieraById(Long id);
-     Primera getPremieraByName(String name);
-     void update(Primera p);
+     Primera getPrimeraById(Long id);
+     Primera getPrimeraByName(String name);
+
 
 
 }

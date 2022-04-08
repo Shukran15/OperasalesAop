@@ -24,7 +24,7 @@ public class OperaService {
 
     public void printPrimera(String name) {
 
-        Primera pr = jpaRepozitory.getPremieraByName(name);
+        Primera pr = jpaRepozitory.getPrimeraByName(name);
 
         System.out.println(pr);
     }
@@ -33,12 +33,12 @@ public class OperaService {
 
         Random random = new Random();
 
-        Primera pr = jpaRepozitory.getPremieraByName(name);
+        Primera pr = jpaRepozitory.getPrimeraByName(name);
         int place = random.nextInt(120);
         double price = 100;
         Ticket t = new Ticket(pr, price, place);
         pr.minusPlace();
-        jpaRepozitory.update(pr);
+        jpaRepozitory.save(pr);
 
         return t;
 
@@ -48,7 +48,7 @@ public class OperaService {
 
         Primera pr = ticket.getPr();
         pr.plusPlace();
-        jpaRepozitory.update(pr);
+        jpaRepozitory.save(pr);
     }
 
     public void save(Primera pr){
@@ -56,6 +56,6 @@ public class OperaService {
     }
 
     public Primera getPremieraById(long id){
-        return jpaRepozitory.getPremieraById(id);
+        return jpaRepozitory.getPrimeraById(id);
     }
 }

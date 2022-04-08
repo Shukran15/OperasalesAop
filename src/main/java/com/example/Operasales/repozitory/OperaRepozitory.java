@@ -60,8 +60,6 @@ public class OperaRepozitory {
         return null;
     }
 
-    public void update(Primera p){
-    }
 
 
 }

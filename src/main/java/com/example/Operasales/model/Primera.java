@@ -17,6 +17,10 @@ public class Primera {
     private Kategory kt;
     private int freeplace;
 
+    public Primera(){
+
+    }
+
 
     public void minusPlace(){
 

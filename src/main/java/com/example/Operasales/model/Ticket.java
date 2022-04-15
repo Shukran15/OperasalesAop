@@ -2,11 +2,23 @@ package com.example.Operasales.model;
 
 import com.example.Operasales.model.Primera;
 
+import javax.persistence.*;
+
+@Entity
 public class Ticket {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    @ManyToOne
+    @JoinColumn(name = "pr_id", nullable = false)
     private Primera pr;
     private double price;
     private int place;
+
+    public Ticket(){
+
+    }
 
 
     public Ticket(Primera pr, double price, int place) {

@@ -2,7 +2,8 @@ package com.example.Operasales.service;
 
 import com.example.Operasales.model.Primera;
 import com.example.Operasales.model.Ticket;
-import com.example.Operasales.repozitory.JPARepozitory;
+import com.example.Operasales.repozitory.JPAPrimeraRepozitory;
+import com.example.Operasales.repozitory.JPATicketRepozitory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,18 +14,33 @@ import java.util.Random;
 public class OperaService {
 
     @Autowired
-    private JPARepozitory jpaRepozitory;
+    private JPAPrimeraRepozitory jpaPrimeraRepozitory;
 
-    public void printAll() {
-        List<Primera> prs = jpaRepozitory.findAll();
+    @Autowired
+    private JPATicketRepozitory jpaTicketRepozitory;
+
+
+    public void printAllPrimera() {
+        List<Primera> prs = jpaPrimeraRepozitory.findAll();
         for (Primera primera : prs) {
             System.out.println(primera);
         }
+
+
+    }
+
+    public void printAllTicket() {
+        List<Ticket> tickets = jpaTicketRepozitory.findAll();
+        for (Ticket ticket : tickets) {
+            System.out.println(ticket);
+        }
+
+
     }
 
     public void printPrimera(String name) {
 
-        Primera pr = jpaRepozitory.getPrimeraByName(name);
+        Primera pr = jpaPrimeraRepozitory.getPrimeraByName(name);
 
         System.out.println(pr);
     }
@@ -33,12 +49,13 @@ public class OperaService {
 
         Random random = new Random();
 
-        Primera pr = jpaRepozitory.getPrimeraByName(name);
+        Primera pr = jpaPrimeraRepozitory.getPrimeraByName(name);
         int place = random.nextInt(120);
         double price = 100;
         Ticket t = new Ticket(pr, price, place);
         pr.minusPlace();
-        jpaRepozitory.save(pr);
+        jpaPrimeraRepozitory.save(pr);
+        jpaTicketRepozitory.save(t);
 
         return t;
 
@@ -48,14 +65,14 @@ public class OperaService {
 
         Primera pr = ticket.getPr();
         pr.plusPlace();
-        jpaRepozitory.save(pr);
+        jpaPrimeraRepozitory.save(pr);
     }
 
     public void save(Primera pr){
-        jpaRepozitory.save(pr);
+        jpaPrimeraRepozitory.save(pr);
     }
 
     public Primera getPremieraById(long id){
-        return jpaRepozitory.getPrimeraById(id);
+        return jpaPrimeraRepozitory.getPrimeraById(id);
     }
 }

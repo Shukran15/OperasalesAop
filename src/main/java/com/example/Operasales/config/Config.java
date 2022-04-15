@@ -16,10 +16,7 @@ public class Config {
     @Bean
     public ArrayList<Primera> primeras(){
         ArrayList<Primera> primeras = new ArrayList<>();
-        Primera primera1 = new Primera(1L, "Мастер и Маргарита", "Мюзикл, балет", R, 100);
-        Primera primera2 = new Primera(2L, "Лебединное озеро", "Мюзикл, балет", PG, 120);
-        primeras.add(primera1);
-        primeras.add(primera2);
+
         return primeras;
 
     }

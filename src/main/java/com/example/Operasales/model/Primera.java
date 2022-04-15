@@ -1,9 +1,8 @@
 package com.example.Operasales.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Primera {
@@ -16,6 +15,11 @@ public class Primera {
     private String descripcion;
     private Kategory kt;
     private int freeplace;
+
+    @OneToMany(mappedBy = "pr")
+    private Set<Ticket> tickets;
+
+
 
     public Primera(){
 

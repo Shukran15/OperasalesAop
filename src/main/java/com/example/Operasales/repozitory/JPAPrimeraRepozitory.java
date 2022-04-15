@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Repository
-public interface JPARepozitory extends CrudRepository<Primera, Long> {
+public interface JPAPrimeraRepozitory extends CrudRepository<Primera, Long> {
 
      List<Primera> findAll();
      Primera save(Primera primera);

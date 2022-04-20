@@ -1,6 +1,6 @@
 package com.example.Operasales;
 
-import com.example.Operasales.model.Kategory;
+
 import com.example.Operasales.model.Primera;
 import com.example.Operasales.model.Ticket;
 import com.example.Operasales.service.OperaService;

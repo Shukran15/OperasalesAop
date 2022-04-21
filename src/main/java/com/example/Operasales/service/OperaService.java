@@ -20,6 +20,23 @@ public class OperaService {
     private JPATicketRepozitory jpaTicketRepozitory;
 
 
+    public List<Primera> getAllPrimera() {
+        List<Primera> prs = jpaPrimeraRepozitory.findAll();
+        return prs;
+
+    }
+
+    public List<Ticket> getAllTicket() {
+        List<Ticket> tickets = jpaTicketRepozitory.findAll();
+        return tickets;
+
+    }
+
+    public void removePrimerabibyId(long id){
+        jpaPrimeraRepozitory.deleteById(id);
+    }
+
+
     public void printAllPrimera() {
         List<Primera> prs = jpaPrimeraRepozitory.findAll();
         for (Primera primera : prs) {

@@ -10,7 +10,7 @@ public interface JPAPrimeraRepozitory extends CrudRepository<Primera, Long> {
 
      List<Primera> findAll();
      Primera save(Primera primera);
-     void removeById(Long id);
+     void deleteById(Long id);
      Primera getPrimeraById(Long id);
      Primera getPrimeraByName(String name);
 

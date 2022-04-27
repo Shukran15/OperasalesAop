@@ -43,13 +43,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         filter.setForceEncoding(true);
         http.addFilterBefore(filter, CsrfFilter.class);
 
-        http.authorizeRequests()
+        http.csrf().disable()
+                .authorizeRequests()
                 .antMatchers("/allprimera").permitAll()
                 .antMatchers("/buyticket").access("hasAnyAuthority('USER')")
                 .antMatchers("/deleteprimera/**").access("hasAnyAuthority('ADMIN')")
                 .antMatchers("/addprimera").access("hasAnyAuthority('ADMIN')")
-                .and()
-                .formLogin();
+                .and().httpBasic()
+                .and().sessionManagement().disable();
 
     }
     @Bean

@@ -1,6 +1,5 @@
-package com.example.Operasales;
+package com.example.operasales;
 
-import org.aopalliance.intercept.Joinpoint;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
@@ -11,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class Notifier {
 
-    @Pointcut ("execution(* com.example.Operasales.repozitory.OperaRepozitory.buy(*))")
+    @Pointcut ("execution(* com.example.operasales.repository.InMemoryOperaRepository.buy(*))")
     public void notiffy(){
 
     }

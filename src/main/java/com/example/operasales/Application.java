@@ -1,16 +1,15 @@
-package com.example.Operasales;
+package com.example.operasales;
 
-import com.example.Operasales.model.Kategory;
-import com.example.Operasales.model.Primera;
-import com.example.Operasales.model.Ticket;
-import com.example.Operasales.service.OperaService;
+import com.example.operasales.model.Primera;
+import com.example.operasales.model.Ticket;
+import com.example.operasales.service.OperaService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import java.util.Scanner;
 
-import static com.example.Operasales.model.Kategory.*;
+import static com.example.operasales.model.Kategory.*;
 
 @SpringBootApplication
 public class Application {
@@ -20,14 +19,6 @@ public class Application {
 
         OperaService operaService = applicationContext.getBean(OperaService.class);
 
-
-
-        Primera primera1 = new Primera(1L, "Мастер и Маргарита", "Мюзикл, балет", R, 100);
-        Primera primera2 = new Primera(2L, "Лебединное озеро", "Мюзикл, балет", PG, 120);
-        Primera primera3 = new Primera(3L, "Кармен", "Комик, Париж, Франция", PG_13, 20);
-        operaService.save(primera1);
-        operaService.save(primera2);
-        operaService.save(primera3);
 
         operaService.printAllPrimera();
         System.out.println("Выберете id премьеру:");

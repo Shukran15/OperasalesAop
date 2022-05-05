@@ -1,7 +1,6 @@
-package com.example.Operasales.model;
+package com.example.operasales.model;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Entity

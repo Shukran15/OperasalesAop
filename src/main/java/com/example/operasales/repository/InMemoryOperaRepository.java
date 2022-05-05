@@ -1,20 +1,20 @@
-package com.example.Operasales.repozitory;
+package com.example.operasales.repository;
 
-import com.example.Operasales.model.Primera;
-import com.example.Operasales.model.Ticket;
+import com.example.operasales.model.Primera;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-@Transactional
-@Repository
-public class OperaRepozitory {
 
-    @Autowired
-    private ArrayList<Primera> prs;
+
+@Repository
+public class InMemoryOperaRepository {
+
+
+
+    private ArrayList<Primera> prs = new ArrayList<>();
 
     public void save(Primera pr) {
 

@@ -1,9 +1,9 @@
-package com.example.Operasales.service;
+package com.example.operasales.service;
 
-import com.example.Operasales.model.Primera;
-import com.example.Operasales.model.Ticket;
-import com.example.Operasales.repozitory.JPAPrimeraRepozitory;
-import com.example.Operasales.repozitory.JPATicketRepozitory;
+import com.example.operasales.model.Primera;
+import com.example.operasales.model.Ticket;
+import com.example.operasales.repository.JPAPrimeraRepository;
+import com.example.operasales.repository.JPATicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,14 +14,14 @@ import java.util.Random;
 public class OperaService {
 
     @Autowired
-    private JPAPrimeraRepozitory jpaPrimeraRepozitory;
+    private JPAPrimeraRepository jpaPrimeraRepository;
 
     @Autowired
-    private JPATicketRepozitory jpaTicketRepozitory;
+    private JPATicketRepository jpaTicketRepository;
 
 
     public void printAllPrimera() {
-        List<Primera> prs = jpaPrimeraRepozitory.findAll();
+        List<Primera> prs = jpaPrimeraRepository.findAll();
         for (Primera primera : prs) {
             System.out.println(primera);
         }
@@ -30,7 +30,7 @@ public class OperaService {
     }
 
     public void printAllTicket() {
-        List<Ticket> tickets = jpaTicketRepozitory.findAll();
+        List<Ticket> tickets = jpaTicketRepository.findAll();
         for (Ticket ticket : tickets) {
             System.out.println(ticket);
         }
@@ -40,7 +40,7 @@ public class OperaService {
 
     public void printPrimera(String name) {
 
-        Primera pr = jpaPrimeraRepozitory.getPrimeraByName(name);
+        Primera pr = jpaPrimeraRepository.getPrimeraByName(name);
 
         System.out.println(pr);
     }
@@ -49,13 +49,13 @@ public class OperaService {
 
         Random random = new Random();
 
-        Primera pr = jpaPrimeraRepozitory.getPrimeraByName(name);
+        Primera pr = jpaPrimeraRepository.getPrimeraByName(name);
         int place = random.nextInt(120);
         double price = 100;
         Ticket t = new Ticket(pr, price, place);
         pr.minusPlace();
-        jpaPrimeraRepozitory.save(pr);
-        jpaTicketRepozitory.save(t);
+        jpaPrimeraRepository.save(pr);
+        jpaTicketRepository.save(t);
 
         return t;
 
@@ -65,14 +65,14 @@ public class OperaService {
 
         Primera pr = ticket.getPr();
         pr.plusPlace();
-        jpaPrimeraRepozitory.save(pr);
+        jpaPrimeraRepository.save(pr);
     }
 
     public void save(Primera pr){
-        jpaPrimeraRepozitory.save(pr);
+        jpaPrimeraRepository.save(pr);
     }
 
     public Primera getPremieraById(long id){
-        return jpaPrimeraRepozitory.getPrimeraById(id);
+        return jpaPrimeraRepository.getPrimeraById(id);
     }
 }

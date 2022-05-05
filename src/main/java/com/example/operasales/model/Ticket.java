@@ -1,6 +1,4 @@
-package com.example.Operasales.model;
-
-import com.example.Operasales.model.Primera;
+package com.example.operasales.model;
 
 import javax.persistence.*;
 

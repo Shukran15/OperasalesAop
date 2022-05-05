@@ -1,12 +1,12 @@
-package com.example.Operasales.repozitory;
+package com.example.operasales.repository;
 
-import com.example.Operasales.model.Primera;
+import com.example.operasales.model.Primera;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Repository
-public interface JPAPrimeraRepozitory extends CrudRepository<Primera, Long> {
+public interface JPAPrimeraRepository extends CrudRepository<Primera, Long> {
 
      List<Primera> findAll();
      Primera save(Primera primera);

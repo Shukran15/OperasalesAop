@@ -7,6 +7,7 @@ import com.example.operasales.repository.JPATicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Random;
 
@@ -45,6 +46,7 @@ public class OperaService {
         System.out.println(pr);
     }
 
+    @Transactional
     public Ticket buy(String name) {
 
         Random random = new Random();

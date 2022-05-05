@@ -3,7 +3,9 @@ package com.example.operasales.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "Ticket")
 public class Ticket {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -11,7 +13,11 @@ public class Ticket {
     @ManyToOne
     @JoinColumn(name = "pr_id", nullable = false)
     private Primera pr;
+
+    @Column(name = "price")
     private double price;
+
+    @Column(name = "place")
     private int place;
 
     public Ticket(){

@@ -4,15 +4,24 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@Table(name = "Prime")
 public class Primera {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "desc")
     private String descripcion;
+
+    @Column(name = "kategory")
     private Kategory kt;
+
+    @Column(name = "free_place")
     private int freeplace;
 
     @OneToMany(mappedBy = "pr")
